@@ -1,10 +1,65 @@
 name: multi_package_workspace
 description: Root workspace for clean architecture Flutter project.
-publish_to: "none"
+publish_to: none
 version: 1.0.0
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.9.2 <4.0.0"
+
+workspace:
+  - app
+  - presenter
+  - network
+  - local_storage
+  - usecase
+  - entity
 
 dev_dependencies:
   melos: ^7.3.0
+
+melos:
+  scripts:
+    build_runner:
+      run: melos exec --scope=app -- flutter pub run build_runner build --delete-conflicting-outputs
+      description: Run build_runner only for the app package
+
+    run_app:
+      run: melos exec --scope=app -- flutter run
+      description: Run the main Flutter app.
+
+    setpj:
+      run: |
+        melos clean
+        flutter pub get
+        melos bootstrap
+      description: Clean, get root deps, and bootstrap all Melos packages.
+    
+    graph:
+      run: |
+        melos list --mermaid | awk '/^graph TD/{flag=1} flag' > docs/dependency.mmd && \
+        npx mmdc -i docs/dependency.mmd -o docs/dependency.png && \
+        rm docs/dependency.mmd
+      description: Generate a Mermaid diagram of package dependencies.
+
+    checkpj:
+      run: |
+        echo "🔍 Melos workspace diagnostic starting..."
+        echo "📄 Checking Melos 7.x workspace integrity..."
+        echo ""
+
+        packages=$(melos list 2>/dev/null)
+        if [ $? -eq 0 ] && [ -n "$packages" ]; then
+          echo "✅ Workspace recognized successfully!"
+          echo "📦 Detected packages:"
+          echo "$packages" | sed 's/^/   • /'
+          echo ""
+          echo "🎯 All Melos scripts are defined under 'melos.scripts' in pubspec.yaml."
+        else
+          echo "❌ Workspace not detected!"
+          echo "⚠️  Check your 'workspace:' entries in pubspec.yaml."
+          echo "⚠️  Or verify that you are in the root directory of your project."
+        fi
+
+        echo ""
+        echo "🏁 Diagnostic finished."
+      description: Pretty diagnostic for workspace detection & script visibility.

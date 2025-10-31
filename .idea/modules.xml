@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<module fileurl="file://$PROJECT_DIR$/app/melos_app.iml" filepath="$PROJECT_DIR$/app/melos_app.iml"/>
+<module fileurl="file://$PROJECT_DIR$/entity/melos_entity.iml" filepath="$PROJECT_DIR$/entity/melos_entity.iml"/>
+<module fileurl="file://$PROJECT_DIR$/local_storage/melos_local_storage.iml" filepath="$PROJECT_DIR$/local_storage/melos_local_storage.iml"/>
+<module fileurl="file://$PROJECT_DIR$/network/melos_network.iml" filepath="$PROJECT_DIR$/network/melos_network.iml"/>
+<module fileurl="file://$PROJECT_DIR$/presenter/melos_presenter.iml" filepath="$PROJECT_DIR$/presenter/melos_presenter.iml"/>
+<module fileurl="file://$PROJECT_DIR$/usecase/melos_usecase.iml" filepath="$PROJECT_DIR$/usecase/melos_usecase.iml"/>
 <module fileurl="file://$PROJECT_DIR$/melos_multi_package_workspace.iml" filepath="$PROJECT_DIR$/melos_multi_package_workspace.iml"/>
     </modules>
   </component>
