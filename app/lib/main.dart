@@ -16,9 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BLoC Clean Architecture',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider(
         create: (context) => TextBloc(updateTextUseCase: UpdateTextUseCaseImpl()),
         child: const MyHomePage(),
@@ -52,9 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
           _isLoading = false;
         });
       } else if (effect is ShowError) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(effect.message)),
-        );
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(effect.message)));
+        }
       }
     });
   }
@@ -62,9 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BLoC Side Effect'),
-      ),
+      appBar: AppBar(title: const Text('BLoC Side Effect')),
       body: Stack(
         children: [
           Padding(
@@ -75,10 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 BlocBuilder<TextBloc, TextState>(
                   builder: (context, state) {
                     if (state.textEntity != null) {
-                      return Text(
-                        state.textEntity!.text,
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      );
+                      return Text(state.textEntity!.text, style: Theme.of(context).textTheme.headlineMedium);
                     } else {
                       return const Text('Enter text and press save');
                     }
@@ -87,10 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 20),
                 TextField(
                   controller: _controller,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter Text',
-                  ),
+                  decoration: const InputDecoration(border: OutlineInputBorder(), labelText: 'Enter Text'),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
@@ -102,10 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          if (_isLoading)
-            const Center(
-              child: CircularProgressIndicator(),
-            ),
+          if (_isLoading) const Center(child: CircularProgressIndicator()),
         ],
       ),
     );

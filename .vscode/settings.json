@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Flutter App",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "app",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Run Flutter App (Profile)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "app",
+            "program": "lib/main.dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Run Flutter App (Release)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "app",
+            "program": "lib/main.dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -16,6 +16,12 @@ dependencies:
     path: ../network
   local_storage:
     path: ../local_storage
+  presenter:
+    path: ../presenter
+  usecase:
+    path: ../usecase
+  entity:
+    path: ../entity
   flutter_bloc: ^8.1.6
 
 dev_dependencies:

@@ -10,8 +10,8 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  presenter:
-    path: ../presenter
+  usecase:
+    path: ../usecase
 
 dev_dependencies:
   lints: ^6.0.0
