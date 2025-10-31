@@ -25,9 +25,7 @@
         "flutter",
         "flutter_bloc",
         "local_storage",
-        "network",
-        "presenter",
-        "usecase"
+        "network"
       ],
       "devDependencies": [
         "flutter_lints",
@@ -39,7 +37,6 @@
       "version": "1.0.0",
       "dependencies": [
         "bloc",
-        "entity",
         "equatable",
         "flutter_bloc",
         "usecase"
@@ -53,8 +50,7 @@
       "name": "network",
       "version": "1.0.0",
       "dependencies": [
-        "entity",
-        "usecase"
+        "presenter"
       ],
       "devDependencies": [
         "lints",
@@ -65,8 +61,7 @@
       "name": "local_storage",
       "version": "1.0.0",
       "dependencies": [
-        "entity",
-        "usecase"
+        "presenter"
       ],
       "devDependencies": [
         "lints",

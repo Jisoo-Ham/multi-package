@@ -12,14 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  presenter:
-    path: ../presenter
   network:
     path: ../network
   local_storage:
     path: ../local_storage
-  usecase:
-    path: ../usecase
   flutter_bloc: ^8.1.6
 
 dev_dependencies:
