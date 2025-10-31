@@ -3,6 +3,4 @@
 /// More dartdocs go here.
 library;
 
-export 'src/entity_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/text_entity.dart';
